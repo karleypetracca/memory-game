@@ -4,23 +4,16 @@ import './MemoryCard.css';
 class MemoryCard extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            isFlipped: false
-        };
-    }
-
-    clickHandler() {
-        this.setState({ isFlipped: !this.state.isFlipped });
     }
 
     render() {
-        let memoryCardInnerClass = this.state.isFlipped ? "MemoryCardInner flipped" : "MemoryCardInner";
+        let memoryCardInnerClass = this.props.isFlipped ? "MemoryCardInner flipped" : "MemoryCardInner";
         
         return (
-            <div className="MemoryCard" onClick={this.clickHandler.bind(this)}>
+            <div className="MemoryCard" onClick={this.props.pickCard}>
                 <div className={memoryCardInnerClass}>
                     <div className="MemoryCardFront">
-                        ∆
+                        {this.props.symbol}
                     </div>
                     <div className="MemoryCardBack">
                         <img src="https://www.digitalcrafts.com/img/digitalcrafts-logo-white-y.png" alt="Memory game card"/> 
